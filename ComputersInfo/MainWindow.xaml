@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputersInfo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Canvas Name="canvas"> 
+            <StackPanel Orientation="Horizontal" Name="stck">
+                <TextBlock>хахdsfsdfsdsdfsdfsdfsвах</TextBlock>
+                <Button Width="100" Padding="10" Name="btn" Content="ClickMee!" Click="btn_Click"></Button>
+            </StackPanel>
+
+            <Border BorderBrush="Gray"   BorderThickness="1" Name="brd" Canvas.Left="{Binding ElementName=stck, Path=ActualWidth}"
+                Canvas.Top="{Binding ElementName=btn, Path=ActualHeight}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Margin="5" Padding="5" TextWrapping="Wrap">Какой-то текст</TextBox>
+                    <StackPanel Grid.Column="1">
+                        <Button Margin="5" Padding="5">1 Button</Button>
+                        <Button Margin="5,0,5,5" Padding="5">2 Button</Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Canvas>
     </Grid>
 </Window>
