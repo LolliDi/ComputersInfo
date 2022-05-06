@@ -14,14 +14,20 @@ namespace ComputersInfo
     
     public partial class MotherBoards
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MotherBoards()
+        {
+            this.Computers = new HashSet<Computers>();
+        }
+    
         public int Id { get; set; }
-        public int IdPC { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
         public Nullable<int> SlotsMemory { get; set; }
         public string MemoryType { get; set; }
         public Nullable<double> MaxPhysicalMemoryMB { get; set; }
         public Nullable<int> CanalsMemoryCount { get; set; }
+        public string ChipSet { get; set; }
         public Nullable<int> SlotsPCI { get; set; }
         public Nullable<int> SlotsPCIEx1 { get; set; }
         public Nullable<int> SlotsPCIE30x16 { get; set; }
@@ -36,6 +42,7 @@ namespace ComputersInfo
         public string EthernetController { get; set; }
         public string AudioController { get; set; }
     
-        public virtual Computers Computers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Computers> Computers { get; set; }
     }
 }

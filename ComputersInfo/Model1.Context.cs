@@ -25,7 +25,9 @@ namespace ComputersInfo
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ComputerHard> ComputerHard { get; set; }
         public virtual DbSet<Computers> Computers { get; set; }
+        public virtual DbSet<ComputersVideo> ComputersVideo { get; set; }
         public virtual DbSet<HardDrives> HardDrives { get; set; }
         public virtual DbSet<MotherBoards> MotherBoards { get; set; }
         public virtual DbSet<OS> OS { get; set; }

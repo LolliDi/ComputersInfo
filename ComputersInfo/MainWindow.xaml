@@ -5,28 +5,270 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputersInfo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Canvas Name="canvas"> 
-            <StackPanel Orientation="Horizontal" Name="stck">
-                <TextBlock>хахdsfsdfsdsdfsdfsdfsвах</TextBlock>
-                <Button Width="100" Padding="10" Name="btn" Content="ClickMee!" Click="btn_Click"></Button>
-            </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <ItemsControl Name="ItemsControlComputers">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" Margin="10,20" Name="StckComputer">
+                                        <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
+                                        <StackPanel DataContext="{Binding Computer}" Orientation="Vertical">
+                                            <GroupBox Header="Mac-adress">
+                                                <TextBox  IsReadOnly="True" Text="{Binding MacAdress}" Width="200"/>
+                                            </GroupBox>
+                                            <GroupBox Header="Имя">
+                                                <TextBox Uid="{Binding id}" Text="{Binding Name}" Width="200" TextChanged="CompName_Changed"/>
+                                            </GroupBox>
+                                            <GroupBox Header="Кабинет">
+                                                <TextBox Uid="{Binding id}" Text="{Binding RoomNumber}" Width="200" TextChanged="Room_Changed"/>
+                                            </GroupBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <GroupBox Header="Заметки" DataContext="{Binding Computer}">
+                                                <TextBox Uid="{Binding id}" Text="{Binding Description}" Width="550" Height="115" TextWrapping="Wrap" VerticalContentAlignment="Top" TextChanged="Description_Changed"/>
+                                            </GroupBox>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <StackPanel Name="OSinfo" Orientation="Horizontal" HorizontalAlignment="Center" DataContext="{Binding OS}">
+                                                    <GroupBox Header="ОС">
+                                                        <TextBox Uid="{Binding Id}" IsReadOnly="True" Text="{Binding Title}" Width="240" HorizontalContentAlignment="Center"/>
+                                                    </GroupBox>
+                                                    <GroupBox Header="Архитектура">
+                                                        <TextBox Uid="{Binding Id}" IsReadOnly="True" Text="{Binding Architecture}" Width="105" HorizontalContentAlignment="Center"/>
+                                                    </GroupBox>
 
-            <Border BorderBrush="Gray"   BorderThickness="1" Name="brd" Canvas.Left="{Binding ElementName=stck, Path=ActualWidth}"
-                Canvas.Top="{Binding ElementName=btn, Path=ActualHeight}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <TextBox Margin="5" Padding="5" TextWrapping="Wrap">Какой-то текст</TextBox>
-                    <StackPanel Grid.Column="1">
-                        <Button Margin="5" Padding="5">1 Button</Button>
-                        <Button Margin="5,0,5,5" Padding="5">2 Button</Button>
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Canvas>
+                                                </StackPanel>
+                                                <GroupBox Header="Дата проверки" Margin="20,5,5,5" DataContext="{Binding Computer}">
+                                                    <TextBox Uid="{Binding id}" IsReadOnly="True" Text="{Binding DateCheck, StringFormat=\{0:dd.MM.yy HH:mm\}}" Width="130" HorizontalContentAlignment="Center"/>
+                                                </GroupBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Border BorderThickness="0,1" BorderBrush="Gray" Panel.ZIndex="1">
+                                        <StackPanel>
+                                            <TextBlock FontSize="20" HorizontalAlignment="Center">Материнская плата</TextBlock>
+                                            <StackPanel Name="StackPanelMather" Orientation="Vertical" DataContext="{Binding MotherBoard}">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <GroupBox Header="Производитель">
+                                                        <TextBox Uid="{Binding id}" Text="{Binding Manufacturer}" TextChanged="ManufacturerBoard_Changed" Width="300"></TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="Модель">
+                                                        <TextBox Text="{Binding Model}" TextChanged="ModelBoard_Changed" Width="300">
+                                                        </TextBox>
+                                                    </GroupBox>
+
+                                                </StackPanel>
+
+                                                <GroupBox Header="Характеристики" Name="GroupBoard" Height="0">
+                                                    <StackPanel Orientation="Vertical">
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <GroupBox Header="Максимальное ОЗУ (МБ)">
+                                                                <TextBox Text="{Binding MaxPhysicalMemoryMB}" TextChanged="MaxPhysicalMemoryMB_Changed" Width="150"></TextBox>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Слоты ОЗУ">
+                                                                <TextBox Text="{Binding SlotsMemory}" TextChanged="SlotsMemory_Changed" Width="100">
+                                                                </TextBox>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Тип ОЗУ">
+                                                                <TextBox Text="{Binding MemoryType}" TextChanged="MemoryType_Changed" Width="120">
+                                                                </TextBox>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Каналы ОЗУ">
+                                                                <TextBox Text="{Binding CanalsMemoryCount}" TextChanged="CanalsMemoryCount_Changed" Width="100">
+                                                                </TextBox>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Сокет">
+                                                                <TextBox Text="{Binding ChipSet}" TextChanged="Socket_Changed" Width="130">
+                                                                </TextBox>
+                                                            </GroupBox>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </GroupBox>
+                                                <Button Name="BtnBoard" Background="Transparent" Content="\/" BorderThickness="0" Click="Board_Click"></Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                    <TextBlock FontSize="20" HorizontalAlignment="Center">Процессор</TextBlock>
+                                    <StackPanel Panel.ZIndex="1" Name="StackPanelProcessor" Orientation="Vertical" DataContext="{Binding Processor}">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <GroupBox Header="Производитель">
+                                                <TextBox Text="{Binding Manufacturer}" TextChanged="ManufacturerProcessor_Changed" Width="300"></TextBox>
+                                            </GroupBox>
+                                            <GroupBox Header="Модель">
+                                                <TextBox Text="{Binding Model}" TextChanged="ModelProcessor_Changed" Width="370">
+                                                </TextBox>
+                                            </GroupBox>
+                                        </StackPanel>
+
+                                        <GroupBox Header="Характеристики" Name="GroupProcessor" Height="0">
+                                            <StackPanel Orientation="Vertical">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <GroupBox Header="Количество ядер">
+                                                        <TextBox Text="{Binding NumberOfCores}" TextChanged="NumberOfCores_Changed" Width="150"></TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="Потоки">
+                                                        <TextBox Text="{Binding ThreadCount}" TextChanged="ThreadCount_Changed" Width="150">
+                                                        </TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="Стартовая частота">
+                                                        <TextBox Text="{Binding StartClockSpeed}" TextChanged="StartClockSpeed_Changed" Width="150">
+                                                        </TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="Техпроцесс (нм)">
+                                                        <TextBox Text="{Binding TechnicalProcess}" TextChanged="TechnicalProcess_Changed" Width="100">
+                                                        </TextBox>
+                                                    </GroupBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <GroupBox Header="L1 Cache (мб)">
+                                                        <TextBox Text="{Binding L1CacheMB}" TextChanged="L1CacheMB_Changed" Width="150"></TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="L2 Cache (мб)">
+                                                        <TextBox Text="{Binding L2CacheMB}" TextChanged="L2CacheMB_Changed" Width="150"></TextBox>
+                                                    </GroupBox>
+                                                    <GroupBox Header="L3 Cache (мб)">
+                                                        <TextBox Text="{Binding L3CacheMB}" TextChanged="L3CacheMB_Changed" Width="150"></TextBox>
+                                                    </GroupBox>
+
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <Button Background="Transparent" Name="BtnProcessor" Content="\/" BorderThickness="0" Click="Processor_Click"></Button>
+                                    </StackPanel>
+
+                                    <Border Panel.ZIndex="1" BorderThickness="0,1" BorderBrush="Gray" >
+                                        <StackPanel DataContext="{Binding VideoControllers}">
+                                            <TextBlock FontSize="20" HorizontalAlignment="Center">Видеокарты</TextBlock>
+                                            <StackPanel Orientation="Vertical">
+                                                <ItemsControl Name="ItemsControlVideo" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel HorizontalAlignment="Center">
+                                                                <GroupBox Header="{Binding Model}">
+                                                                    <StackPanel Orientation="Vertical">
+                                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                            <GroupBox Header="Производитель">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding Manufacturer}" Width="300" TextChanged="ManufacturerVideo_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Граф. процессор">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding VideoProcessor}" Width="300" TextChanged="VideoProc_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Кол. видеопамяти (мб)">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding AdapterRAMMB}" Width="150" TextChanged="AdapterRAMMB_Changed"/>
+                                                                            </GroupBox>
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+                                                                </GroupBox>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                            <Button Background="Transparent" Name="BtnVideo" Content="\/" BorderThickness="0" Click="Video_Click"></Button>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <StackPanel Panel.ZIndex="1">
+                                        <TextBlock FontSize="20" HorizontalAlignment="Center">Оперативная память</TextBlock>
+
+                                        <StackPanel DataContext="{Binding PhysicalMemory}" Orientation="Vertical">
+                                            <ItemsControl Name="ItemsControlMemory" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <GroupBox Header="Тип">
+                                                                <TextBox Uid="{Binding Id}" Text="{Binding MemoryType}" Width="100" TextChanged="MemType_Changed"/>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Размер (мб)">
+                                                                <TextBox Uid="{Binding Id}" Text="{Binding SizeMB}" Width="100" TextChanged="MemSize_Changed"/>
+                                                            </GroupBox>
+                                                            <GroupBox Header="Частота">
+                                                                <TextBox Uid="{Binding Id}" Text="{Binding Frequency}" Width="100" TextChanged="MemFrequency_Changed"/>
+                                                            </GroupBox>
+
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                        <Button Background="Transparent" Name="BtnRAM" Content="\/" BorderThickness="0" Click="MemoryStck_Click"></Button>
+                                    </StackPanel>
+                                    <Border Panel.ZIndex="1" BorderThickness="0,1" BorderBrush="Gray" >
+                                        <StackPanel>
+                                            <TextBlock FontSize="20" HorizontalAlignment="Center">Жесткие диски</TextBlock>
+
+                                            <StackPanel DataContext="{Binding HardDrives}" Orientation="Vertical">
+                                                <ItemsControl Name="ItemsControlHard" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel HorizontalAlignment="Center">
+                                                                <GroupBox Header="{Binding Model}">
+                                                                    <StackPanel Orientation="Vertical">
+                                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                            <GroupBox Header="Производитель">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding Manufacturer}" Width="300" TextChanged="Manufacturer_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Тип">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding Type}" Width="150" TextChanged="Type_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Размер (ГБ)">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding SizeGB}" Width="150" TextChanged="SizeGB_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Интерфейс">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding Interface}" Width="100" TextChanged="Interface_Changed"/>
+                                                                            </GroupBox>
+                                                                        </StackPanel>
+                                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                            <GroupBox Header="Скорость записи">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding SpeedWriteMBS}" Width="150" TextChanged="SpeedWrite_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Скорость чтения">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding SpeedReadMBS}" Width="150" TextChanged="SpeedRead_Changed"/>
+                                                                            </GroupBox>
+                                                                            <GroupBox Header="Буффер (мб)">
+                                                                                <TextBox Uid="{Binding Id}" Text="{Binding BufferMB}" Width="150" TextChanged="Buffer_Changed"/>
+                                                                            </GroupBox>
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+                                                                </GroupBox>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                            <Button Background="Transparent" Name="BtnHard" Content="\/" BorderThickness="0" Click="Hard_Click"></Button>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Window>
