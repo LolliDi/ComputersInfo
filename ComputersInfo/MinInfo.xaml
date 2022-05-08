@@ -1,0 +1,61 @@
+﻿<Page x:Class="ComputersInfo.MinInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputersInfo"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MinInfo">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Gray" Margin="0,5">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Vertical">
+                                    <GroupBox Header="О компьютере">
+                                        <StackPanel Orientation="Horizontal">
+                                            <GroupBox Header="Имя ПК">
+                                                <TextBox IsReadOnly="True" Text="{Binding Computer.PCName}" Width="200"/>
+                                            </GroupBox>
+                                            <GroupBox Header="Ip" >
+                                                <TextBox IsReadOnly="True" Text="{Binding Computer.IpInternet}" Width="150"/>
+                                            </GroupBox>
+                                            <GroupBox Header="ОС" >
+                                                <TextBox IsReadOnly="True" Text="{Binding OS.Title}" Width="150"/>
+                                            </GroupBox>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <GroupBox Header="Характеристики">
+                                        <StackPanel Orientation="Vertical">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.Model, StringFormat={}Процессор: {0}}"/>
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryCountMB, StringFormat={}ОЗУ (МБ): {0}}"/>
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding PhysicalMemory[0].Frequency, StringFormat={}Частота ОЗУ: {0}}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.Model, StringFormat={}Видеокарта: {0}}"/>
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.AdapterRAMMB, StringFormat={}Видеопамять: {0}}"/>
+                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding memoryHardGB, StringFormat={}Память: {0}}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

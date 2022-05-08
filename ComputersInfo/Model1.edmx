@@ -19,9 +19,14 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MacAdress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PCName" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserNick" Type="nvarchar" MaxLength="200" />
+          <Property Name="IpInternet" Type="nvarchar" MaxLength="50" />
+          <Property Name="IpLocal" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="1000" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="RoomNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Users" Type="nvarchar" MaxLength="200" />
           <Property Name="MotherBoardId" Type="int" />
           <Property Name="ProcessorId" Type="int" />
           <Property Name="DateCheck" Type="datetime" />
@@ -352,9 +357,14 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MacAdress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PCName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserNick" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IpInternet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpLocal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="RoomNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Users" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MotherBoardId" Type="Int32" />
           <Property Name="ProcessorId" Type="Int32" />
           <Property Name="DateCheck" Type="DateTime" Precision="3" />
@@ -591,7 +601,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -612,9 +622,14 @@
                 <ScalarProperty Name="DateCheck" ColumnName="DateCheck" />
                 <ScalarProperty Name="ProcessorId" ColumnName="ProcessorId" />
                 <ScalarProperty Name="MotherBoardId" ColumnName="MotherBoardId" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IpLocal" ColumnName="IpLocal" />
+                <ScalarProperty Name="IpInternet" ColumnName="IpInternet" />
+                <ScalarProperty Name="UserNick" ColumnName="UserNick" />
+                <ScalarProperty Name="PCName" ColumnName="PCName" />
                 <ScalarProperty Name="MacAdress" ColumnName="MacAdress" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
