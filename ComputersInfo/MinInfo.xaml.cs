@@ -28,10 +28,9 @@ namespace ComputersInfo
 
         private void SelectItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ClickCount == 2)
-            {
-
-            }    
+            int id = Convert.ToInt32((sender as Button).Uid);
+            FrameClass.fr.Navigate(new EditComputer(id));
+              
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)

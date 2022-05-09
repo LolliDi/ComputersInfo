@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FullInfo">
 
-    <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible">
-            <StackPanel Orientation="Vertical">
+    <Grid UseLayoutRounding="True" SnapsToDevicePixels="True">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" UseLayoutRounding="True" SnapsToDevicePixels="True">
+            <StackPanel Orientation="Vertical" UseLayoutRounding="True" SnapsToDevicePixels="True">
                 <TextBlock Text="{Binding CountSelected, StringFormat={}Количество: {0}}"/>
-                <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}">
+                <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}" UseLayoutRounding="True" SnapsToDevicePixels="True">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
@@ -20,7 +20,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="2" BorderBrush="Black" Margin="0,20">
+                            <Button Margin="0,5" Uid="{Binding Computer.id}" MouseDoubleClick="SelectItem_MouseLeftButtonDown" Background="Transparent">
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Vertical" Name="StckComputer">
                                         <StackPanel Orientation="Horizontal" Margin="10,20,10,0" >
@@ -280,7 +280,7 @@
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
-                            </Border>
+                            </Button>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

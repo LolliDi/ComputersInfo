@@ -76,6 +76,10 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DBCl.cs" />
+    <Compile Include="EditComputer.xaml.cs">
+      <DependentUpon>EditComputer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrameClass.cs" />
     <Compile Include="FullInfo.xaml.cs">
       <DependentUpon>FullInfo.xaml</DependentUpon>
     </Compile>
@@ -83,6 +87,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="info.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MinInfo.xaml.cs">
       <DependentUpon>MinInfo.xaml</DependentUpon>
     </Compile>
@@ -110,7 +117,15 @@
     <Compile Include="VideoControllers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="EditComputer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FullInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

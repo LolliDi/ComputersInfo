@@ -44,5 +44,11 @@ namespace ComputersInfo
             }
 
         }
+
+        private void SelectItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as Button).Uid);
+            FrameClass.fr.Navigate(new EditComputer(id));
+        }
     }
 }
