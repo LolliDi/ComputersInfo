@@ -25,21 +25,25 @@
                 <GroupBox Header="ip">
                     <TextBox Name="TextBoxIp"  IsReadOnly="False" Width="200" TextChanged="Room_Changed"/>
                 </GroupBox>
-                <GroupBox Header="Вид">
-                    <StackPanel Orientation="Vertical">
-                        <RadioButton GroupName="PreviewMode" Name="MinRadio" Checked="MinRadio_Checked">
-                        <TextBlock Margin="0" Text="Сжато"/>
-                        </RadioButton>
-                        <RadioButton GroupName="PreviewMode" Name="FullRadio" Checked="MinRadio_Checked">
-                            <TextBlock Margin="0" Text="Полный" />
-                        </RadioButton>
-                    </StackPanel>
-                </GroupBox>
-                
+                <Button Height="35" VerticalAlignment="Top" Content="&lt;" Click="Options_Click"/>
+
             </StackPanel>
         </StackPanel>
         <Frame Grid.Row="1" Name="FrameModePreview" NavigationUIVisibility="Hidden">
-            
+
         </Frame>
+        <StackPanel Name="StackBlur" Grid.Row="0" Grid.RowSpan="2" Background="#aa000000" Visibility="Collapsed" MouseLeftButtonDown="StackBlur_MouseLeftButtonDown"/>
+        <StackPanel Name="StackOptions" Grid.Row="0" Grid.RowSpan="2" Background="AliceBlue" HorizontalAlignment="Right" Width="0">
+            <GroupBox Header="Вид">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton GroupName="PreviewMode" Name="MinRadio" Checked="MinRadio_Checked">
+                        <TextBlock Margin="0" Text="Сжато"/>
+                    </RadioButton>
+                    <RadioButton GroupName="PreviewMode" Name="FullRadio" Checked="MinRadio_Checked">
+                        <TextBlock Margin="0" Text="Полный" />
+                    </RadioButton>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
     </Grid>
 </Window>

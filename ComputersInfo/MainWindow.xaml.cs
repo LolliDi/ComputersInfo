@@ -175,5 +175,35 @@ namespace ComputersInfo
                 FrameModePreview.Navigate(new FullInfo());
             }
         }
+
+        public void ShowOptions()
+        {
+            DoubleAnimation da = new DoubleAnimation();
+            if (StackOptions.Width == 0)
+            {
+                da.To = 220;
+                da.Duration = TimeSpan.FromSeconds(0.25);
+                StackOptions.BeginAnimation(Border.WidthProperty, da);
+                StackBlur.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                da.To = 0;
+                da.Duration = TimeSpan.FromSeconds(0.25);
+                StackOptions.BeginAnimation(Border.WidthProperty, da);
+                StackBlur.Visibility = Visibility.Collapsed;
+            }
+        }
+
+
+        private void Options_Click(object sender, RoutedEventArgs e)
+        {
+            ShowOptions();
+        }
+
+        private void StackBlur_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ShowOptions();
+        }
     }
 }

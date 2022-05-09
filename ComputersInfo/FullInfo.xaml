@@ -167,7 +167,7 @@
                                 <Border Panel.ZIndex="1" BorderThickness="0,1" BorderBrush="Gray" >
                                     <StackPanel>
                                         <TextBlock FontSize="20" HorizontalAlignment="Center">Видеокарты</TextBlock>
-                                        <ItemsControl Name="ItemsControlVideo" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemsSource="{Binding VideoControllers}">
+                                        <ItemsControl Name="ItemsControlVideo" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemsSource="{Binding VideoController}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"/>
@@ -228,7 +228,7 @@
                                 <Border Panel.ZIndex="1" BorderThickness="0,1" BorderBrush="Gray">
                                     <StackPanel>
                                         <TextBlock FontSize="20" HorizontalAlignment="Center">Жесткие диски</TextBlock>
-                                        <ItemsControl ItemsSource="{Binding HardDrives}" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                        <ItemsControl ItemsSource="{Binding HardDrive}" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"/>
