@@ -25,5 +25,24 @@ namespace ComputersInfo
             InitializeComponent();
             DataContext = info.s;
         }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as Button).Uid);
+            Computers c = DBCl.db.Computers.FirstOrDefault(x => x.id == id);
+            switch (MessageBox.Show("Вы действительно хотите удалить компьютер c\nИмя: " + c.Name + "\nip: " + c.IpInternet + "\nlocal ip: " + c.IpLocal, "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question))
+            {
+                case MessageBoxResult.Yes:
+
+                    DBCl.db.Computers.Remove(c);
+                    DBCl.db.SaveChanges();
+                    info.s.SelectedPCModel.Remove(info.s.SelectedPCModel.FirstOrDefault(x => x.Computer == c));
+                    ItemsControlComputers.Items.Refresh();
+                    break;
+                default:
+                    return;
+            }
+
+        }
     }
 }

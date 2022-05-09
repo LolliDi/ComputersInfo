@@ -90,6 +90,7 @@ namespace ComputersInfo
 
         public void Searching()
         {
+            DBCl.db = new Entities();
             List<ComputerModel> cm = new List<ComputerModel>();
             string searchParameter = TextBoxRoom.Text.ToLower();
             if (searchParameter.Length>0)
@@ -204,6 +205,11 @@ namespace ComputersInfo
         private void StackBlur_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ShowOptions();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            Searching();
         }
     }
 }

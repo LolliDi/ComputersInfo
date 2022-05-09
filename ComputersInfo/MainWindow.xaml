@@ -33,17 +33,24 @@
 
         </Frame>
         <StackPanel Name="StackBlur" Grid.Row="0" Grid.RowSpan="2" Background="#aa000000" Visibility="Collapsed" MouseLeftButtonDown="StackBlur_MouseLeftButtonDown"/>
-        <StackPanel Name="StackOptions" Grid.Row="0" Grid.RowSpan="2" Background="AliceBlue" HorizontalAlignment="Right" Width="0">
-            <GroupBox Header="Вид">
+        <StackPanel Name="StackOptions" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="0">
+            <Border BorderBrush="#99FF4D00" BorderThickness="1" CornerRadius="5" Background="AliceBlue">
                 <StackPanel Orientation="Vertical">
-                    <RadioButton GroupName="PreviewMode" Name="MinRadio" Checked="MinRadio_Checked">
-                        <TextBlock Margin="0" Text="Сжато"/>
-                    </RadioButton>
-                    <RadioButton GroupName="PreviewMode" Name="FullRadio" Checked="MinRadio_Checked">
-                        <TextBlock Margin="0" Text="Полный" />
-                    </RadioButton>
+                    <GroupBox Header="Вид">
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton GroupName="PreviewMode" Name="MinRadio" Checked="MinRadio_Checked">
+                                <TextBlock Margin="0" Text="Сжато"/>
+                            </RadioButton>
+                            <RadioButton GroupName="PreviewMode" Name="FullRadio" Checked="MinRadio_Checked">
+                                <TextBlock Margin="0" Text="Полный" />
+                            </RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                    <Button Click="Update_Click">
+                        <TextBlock>Обновить</TextBlock>
+                    </Button>
                 </StackPanel>
-            </GroupBox>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>

@@ -18,6 +18,7 @@ namespace ComputersInfo
 
         List<ComputerModel> pcModel;
         List<ComputerModel> selectedPCModel;
+        int countSelected = 0;
 
         public List<ComputerModel> SelectedPCModel
         {
@@ -25,6 +26,7 @@ namespace ComputersInfo
             set
             {
                 selectedPCModel = value;
+                CountSelected = selectedPCModel.Count;
                 OnPropertyChanged(nameof(SelectedPCModel));
             }
         }
@@ -32,6 +34,15 @@ namespace ComputersInfo
         {
             get => pcModel;
             set => pcModel = value;
+        }
+        public int CountSelected
+        {
+            get => countSelected;
+            set
+            {
+                countSelected = value;
+                OnPropertyChanged(nameof(CountSelected));
+            }
         }
     }
 }

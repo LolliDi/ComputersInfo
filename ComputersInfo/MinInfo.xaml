@@ -10,55 +10,63 @@
 
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Visible" UseLayoutRounding="True" SnapsToDevicePixels="True">
-            <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}" UseLayoutRounding="True" SnapsToDevicePixels="True">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Margin="0,5" Style="{StaticResource SelectiveButton}" Uid="{Binding Computer.id}" MouseLeftButtonDown="SelectItem_MouseLeftButtonDown">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
-                                <StackPanel Orientation="Vertical">
-                                    <GroupBox Header="О компьютере">
-                                        <StackPanel Orientation="Horizontal">
-                                            <GroupBox Header="Имя ПК">
-                                                <TextBox IsReadOnly="True" Text="{Binding Computer.PCName}" Width="200"/>
-                                            </GroupBox>
-                                            <GroupBox Header="Ip" >
-                                                <TextBox IsReadOnly="True" Text="{Binding Computer.IpInternet}" Width="150"/>
-                                            </GroupBox>
-                                            <GroupBox Header="ОС" >
-                                                <TextBox IsReadOnly="True" Text="{Binding OS.Title}" Width="250"/>
-                                            </GroupBox>
-                                        </StackPanel>
-                                    </GroupBox>
-                                    <GroupBox Header="Характеристики">
-                                        <StackPanel Orientation="Horizontal">
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.Model, StringFormat={}Процессор: {0}}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.NumberOfCores, StringFormat={}Количество ядер: {0}}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryCountMB, StringFormat={}ОЗУ: {0} МБ}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.Model, StringFormat={}Видеокарта: {0}}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryHardGB, StringFormat={}Память: {0} гб}"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding CountSelected, StringFormat={}Количество: {0}}"/>
+                <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}" UseLayoutRounding="True" SnapsToDevicePixels="True">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Margin="0,5" Style="{StaticResource SelectiveButton}" Uid="{Binding Computer.id}" MouseLeftButtonDown="SelectItem_MouseLeftButtonDown">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical">
+                                        <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
+                                        <Button Uid="{Binding Computer.id}" Click="Del_Click">
+                                            <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Удалить"/>
+                                        </Button>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical">
+                                        <GroupBox Header="О компьютере">
+                                            <StackPanel Orientation="Horizontal">
+                                                <GroupBox Header="Имя ПК">
+                                                    <TextBox IsReadOnly="True" Text="{Binding Computer.PCName}" Width="200"/>
+                                                </GroupBox>
+                                                <GroupBox Header="Ip" >
+                                                    <TextBox IsReadOnly="True" Text="{Binding Computer.IpInternet}" Width="150"/>
+                                                </GroupBox>
+                                                <GroupBox Header="ОС" >
+                                                    <TextBox IsReadOnly="True" Text="{Binding OS.Title}" Width="250"/>
+                                                </GroupBox>
                                             </StackPanel>
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.StartClockSpeed, StringFormat={}Стартовая частота: {0} Гц}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.ThreadCount, StringFormat={}Количество потоков: {0}}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding PhysicalMemory[0].Frequency, StringFormat={}Частота ОЗУ: {0} Гц}"/>
-                                                <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.AdapterRAMMB, StringFormat={}Видеопамять: {0} МБ}"/>
+                                        </GroupBox>
+                                        <GroupBox Header="Характеристики">
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.Model, StringFormat={}Процессор: {0}}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.NumberOfCores, StringFormat={}Количество ядер: {0}}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryCountMB, StringFormat={}ОЗУ: {0} МБ}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.Model, StringFormat={}Видеокарта: {0}}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryHardGB, StringFormat={}Память: {0} гб}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.StartClockSpeed, StringFormat={}Стартовая частота: {0} Гц}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.ThreadCount, StringFormat={}Количество потоков: {0}}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding PhysicalMemory[0].Frequency, StringFormat={}Частота ОЗУ: {0} Гц}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.AdapterRAMMB, StringFormat={}Видеопамять: {0} МБ}"/>
+                                                </StackPanel>
                                             </StackPanel>
-                                        </StackPanel>
-                                    </GroupBox>
-                                </StackPanel>
+                                        </GroupBox>
+                                    </StackPanel>
 
-                            </StackPanel>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>
