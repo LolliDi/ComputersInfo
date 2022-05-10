@@ -51,6 +51,9 @@
                     <Button Click="Update_Click" Style="{StaticResource StandartButton}">
                         <TextBlock>Обновить</TextBlock>
                     </Button>
+                    <Button Margin="10,0,10,10" Click="PassportSelected_Click" Style="{StaticResource StandartButton}">
+                        <TextBlock>Составить тех. паспорт</TextBlock>
+                    </Button>
                 </StackPanel>
             </Border>
         </StackPanel>

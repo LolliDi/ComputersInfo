@@ -27,18 +27,21 @@
                                         <Button Uid="{Binding Computer.id}" Style="{StaticResource StandartButton}" Click="Del_Click">
                                             <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Удалить"/>
                                         </Button>
+                                        <GroupBox Header="Проверка" Margin="0"  DataContext="{Binding Computer}">
+                                            <TextBox Text="{Binding DateCheck, StringFormat=\{0:dd.MM.yy HH:mm\}}" Margin="-2" Width="110" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0"/>
+                                        </GroupBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical">
                                         <GroupBox Header="О компьютере">
                                             <StackPanel Orientation="Horizontal">
                                                 <GroupBox Header="Имя ПК">
-                                                    <TextBox IsReadOnly="True" Text="{Binding Computer.PCName}" Width="200"/>
+                                                    <TextBox Text="{Binding Computer.PCName}" Width="200"/>
                                                 </GroupBox>
                                                 <GroupBox Header="Ip" >
-                                                    <TextBox IsReadOnly="True" Text="{Binding Computer.IpInternet}" Width="150"/>
+                                                    <TextBox Text="{Binding Computer.IpInternet}" Width="150"/>
                                                 </GroupBox>
                                                 <GroupBox Header="ОС" >
-                                                    <TextBox IsReadOnly="True" Text="{Binding OS.Title}" Width="250"/>
+                                                    <TextBox Text="{Binding OS.Title}" Width="270"/>
                                                 </GroupBox>
                                             </StackPanel>
                                         </GroupBox>

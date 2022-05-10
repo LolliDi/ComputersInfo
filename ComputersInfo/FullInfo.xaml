@@ -26,7 +26,7 @@
                                         <StackPanel Orientation="Horizontal" Margin="10,20,10,0" >
                                             <StackPanel Orientation="Vertical">
                                                 <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
-                                                <Button Uid="{Binding Computer.id}" Click="Del_Click">
+                                                <Button Uid="{Binding Computer.id}" Style="{StaticResource StandartButton}" Click="Del_Click">
                                                     <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Удалить"/>
                                                 </Button>
                                             </StackPanel>
