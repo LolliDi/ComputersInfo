@@ -379,7 +379,6 @@ namespace ComputersInfo
         {
             List<ComputerModel> comps = new List<ComputerModel>();
             comps.Add(new ComputerModel(computer));
-
             CreatePassport.Create(comps);
         }
     }

@@ -24,9 +24,14 @@
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Vertical">
                                         <Image Source="Resources/Comp.png" Stretch="Fill" Height="110" Width="110" VerticalAlignment="Top"/>
-                                        <Button Uid="{Binding Computer.id}" Style="{StaticResource StandartButton}" Click="Del_Click">
-                                            <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Удалить"/>
-                                        </Button>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Uid="{Binding Computer.id}" Style="{StaticResource StandartButton}" Click="Del_Click" Margin="0,5,5,5" Width="70">
+                                                <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Удалить"/>
+                                            </Button>
+                                            <Button Uid="{Binding Computer.id}" Click="CreatePassport_Click" Grid.Row="1" Grid.Column="2" Margin="0" Width="30" Style="{StaticResource StandartButton}">
+                                                <TextBlock FontSize="30" Margin="1,-2">🗎</TextBlock>
+                                            </Button>
+                                        </StackPanel>
                                         <GroupBox Header="Проверка" Margin="0"  DataContext="{Binding Computer}">
                                             <TextBox Text="{Binding DateCheck, StringFormat=\{0:dd.MM.yy HH:mm\}}" Margin="-2" Width="110" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0"/>
                                         </GroupBox>

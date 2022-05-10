@@ -51,5 +51,14 @@ namespace ComputersInfo
             }
             
         }
+
+        private void CreatePassport_Click(object sender, RoutedEventArgs e)
+        {
+            List<ComputerModel> comps = new List<ComputerModel>();
+            int id = Convert.ToInt32((sender as Button).Uid);
+            Computers c = DBCl.db.Computers.FirstOrDefault(x => x.id == id);
+            comps.Add(new ComputerModel(c));
+            CreatePassport.Create(comps);
+        }
     }
 }

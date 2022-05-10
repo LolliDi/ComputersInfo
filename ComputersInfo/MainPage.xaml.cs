@@ -36,9 +36,9 @@ namespace ComputersInfo
             return cm;
         }
 
-        public void Search()
+        public void Search() //запускаем поисковик в отдельном потоке, чтобы не лагал интерфейс
         {
-            string room = TextBoxRoom.Text.ToLower();
+            string room = TextBoxRoom.Text.ToLower(); //берем текст, т.к. в потоке он будет недоступен
             string name = TextBoxName.Text.ToLower();
             string localIp = TextBoxLocalIp.Text.ToLower();
             string ip = TextBoxIp.Text.ToLower();
