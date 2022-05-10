@@ -10,7 +10,7 @@
 
     <Grid UseLayoutRounding="True" SnapsToDevicePixels="True">
         <ScrollViewer VerticalScrollBarVisibility="Visible" UseLayoutRounding="True" SnapsToDevicePixels="True">
-            <StackPanel Orientation="Vertical" UseLayoutRounding="True" SnapsToDevicePixels="True">
+            <StackPanel Orientation="Vertical" UseLayoutRounding="True" SnapsToDevicePixels="True" HorizontalAlignment="Center">
                 <TextBlock Text="{Binding CountSelected, StringFormat={}Количество: {0}}"/>
                 <ItemsControl Name="ItemsControlComputers" ItemsSource="{Binding SelectedPCModel}" UseLayoutRounding="True" SnapsToDevicePixels="True">
                     <ItemsControl.ItemsPanel>
