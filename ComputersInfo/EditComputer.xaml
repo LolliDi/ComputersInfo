@@ -16,9 +16,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Column="0" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Panel.ZIndex="0">
+        <ScrollViewer Grid.Column="0" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Panel.ZIndex="0">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Vertical" Name="StckComputer">
                     <StackPanel Orientation="Horizontal" Margin="10,20,10,0" >
@@ -296,7 +297,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button Click="Back_Click" Grid.Row="1" Grid.Column="0" Margin="5,0,5,0" Style="{StaticResource StandartButton}">
+        <Button Click="Back_Click" Grid.Row="1" Grid.Column="0" Margin="5,0" Style="{StaticResource StandartButton}">
             <TextBlock FontSize="20" Margin="0">Назад</TextBlock>
         </Button>
 
@@ -304,7 +305,11 @@
             <TextBlock FontSize="20" Margin="0">Сохранить</TextBlock>
         </Button>
 
-        <Button Click="ReloadInfo_Click" Grid.Row="1" Grid.Column="2" Margin="5,0,5,0" Style="{StaticResource StandartButton}">
+        <Button Click="CreatePassport_Click" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0" Style="{StaticResource StandartButton}">
+            <TextBlock FontSize="35" Margin="0,-6">🗎</TextBlock>
+        </Button>
+        
+        <Button Click="ReloadInfo_Click" Grid.Row="1" Grid.Column="3" Margin="5,0" Style="{StaticResource StandartButton}">
             <TextBlock FontSize="40" Margin="0,-10">↻</TextBlock>
         </Button>
     </Grid>

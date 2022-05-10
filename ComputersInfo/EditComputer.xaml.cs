@@ -374,5 +374,13 @@ namespace ComputersInfo
             DBCl.db = new Entities();
             FrameClass.fr.Navigate(FrameClass.main);
         }
+
+        private void CreatePassport_Click(object sender, RoutedEventArgs e)
+        {
+            List<ComputerModel> comps = new List<ComputerModel>();
+            comps.Add(new ComputerModel(computer));
+
+            CreatePassport.Create(comps);
+        }
     }
 }
