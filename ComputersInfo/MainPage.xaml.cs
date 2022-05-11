@@ -41,13 +41,14 @@ namespace ComputersInfo
             string room = TextBoxRoom.Text.ToLower(); //берем текст, т.к. в потоке он будет недоступен
             string name = TextBoxName.Text.ToLower();
             string localIp = TextBoxLocalIp.Text.ToLower();
-            string ip = TextBoxIp.Text.ToLower();
+            string nameUser = TextBoxIp.Text.ToLower();
+            string inventory = TextBoxNumber.Text.ToLower();
             System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(new Action(() => Searching(room,
-               name, localIp, ip))));
+               name, localIp, nameUser, inventory))));
             thread.Start();
         }
 
-        public async void Searching(string room, string name, string localIp, string ip)
+        public async void Searching(string room, string name, string localIp, string namePC, string inventory)
         {
             lock (locker) //доступ только для одного потока, остальные ждут очереди
             {
@@ -101,13 +102,26 @@ namespace ComputersInfo
                     }
                     cm = comp;
                 }
-                if (ip.Length > 0)
+                if (namePC.Length > 0)
                 {
                     List<ComputerModel> comp = new List<ComputerModel>();
                     foreach (ComputerModel c in cm)
                     {
-                        string ips = c.Computer.IpInternet ?? "";
-                        if (ips.ToLower().Contains(ip))
+                        string nameP = c.Computer.PCName ?? "";
+                        if (nameP.ToLower().Contains(namePC))
+                        {
+                            comp.Add(c);
+                        }
+                    }
+                    cm = comp;
+                }
+                if(inventory.Length > 0)
+                {
+                    List<ComputerModel> comp = new List<ComputerModel>();
+                    foreach (ComputerModel c in cm)
+                    {
+                        string inv = c.Computer.InventoryNumber ?? "";
+                        if (inv.ToLower().Contains(inventory))
                         {
                             comp.Add(c);
                         }

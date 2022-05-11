@@ -8,7 +8,6 @@ namespace ComputersInfo
 {
     public static class CreatePassport
     {
-
         public static void Create(List<ComputerModel> computers) //создаем поток на создание паспорта
         {
             System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(new Action(() => CreatePas(computers))));

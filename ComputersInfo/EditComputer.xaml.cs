@@ -140,6 +140,10 @@ namespace ComputersInfo
         {
             motherBoard.ChipSet = (sender as TextBox).Text;
         }
+        private void CompNumber_Changed(object sender, TextChangedEventArgs e)
+        {
+            computer.InventoryNumber = (sender as TextBox).Text;
+        }
         private void ModelBoard_Changed(object sender, TextChangedEventArgs e)
         {
             motherBoard.Model = (sender as TextBox).Text;

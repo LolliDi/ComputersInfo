@@ -40,13 +40,16 @@
                                         <GroupBox Header="О компьютере">
                                             <StackPanel Orientation="Horizontal">
                                                 <GroupBox Header="Имя ПК">
-                                                    <TextBox Text="{Binding Computer.PCName}" Width="200"/>
+                                                    <TextBox Text="{Binding Computer.PCName}" Width="170"/>
                                                 </GroupBox>
-                                                <GroupBox Header="Ip" >
-                                                    <TextBox Text="{Binding Computer.IpInternet}" Width="150"/>
+                                                <GroupBox Header="Локальный ip" >
+                                                    <TextBox Text="{Binding Computer.IpLocal}" Width="120" HorizontalContentAlignment="Center"/>
                                                 </GroupBox>
-                                                <GroupBox Header="ОС" >
-                                                    <TextBox Text="{Binding OS.Title}" Width="270"/>
+                                                <GroupBox Header="Номер">
+                                                    <TextBox Text="{Binding Computer.InventoryNumber}" Width="130" HorizontalContentAlignment="Center"/>
+                                                </GroupBox>
+                                                <GroupBox Header="Имя пользователя">
+                                                    <TextBox Text="{Binding Computer.Name}" Width="200"/>
                                                 </GroupBox>
                                             </StackPanel>
                                         </GroupBox>

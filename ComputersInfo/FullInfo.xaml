@@ -42,8 +42,8 @@
                                                 <GroupBox Header="Кабинет">
                                                     <TextBox Text="{Binding RoomNumber}" Width="200" />
                                                 </GroupBox>
-                                                <GroupBox Header="Ip">
-                                                    <TextBox IsReadOnly="True" Text="{Binding IpInternet}" Width="200"/>
+                                                <GroupBox Header="Инвентарный номер">
+                                                    <TextBox Text="{Binding InventoryNumber}" Width="200"/>
                                                 </GroupBox>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
@@ -78,10 +78,13 @@
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <GroupBox Header="Локальный ip">
-                                                            <TextBox IsReadOnly="True" Text="{Binding IpLocal}" Width="200"/>
+                                                            <TextBox Text="{Binding IpLocal}" Width="123" HorizontalContentAlignment="Center"/>
                                                         </GroupBox>
                                                         <GroupBox Header="Мак адрес">
-                                                            <TextBox IsReadOnly="True" Text="{Binding MacAdress}" Width="200"/>
+                                                            <TextBox Text="{Binding MacAdress}" Width="123" HorizontalContentAlignment="Center"/>
+                                                        </GroupBox>
+                                                        <GroupBox Header="Ip">
+                                                            <TextBox Text="{Binding IpInternet}" Width="122" HorizontalContentAlignment="Center"/>
                                                         </GroupBox>
                                                     </StackPanel>
                                                 </StackPanel>

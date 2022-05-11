@@ -10,32 +10,42 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="15,0,0,0">
             <StackPanel Orientation="Horizontal">
-                <GroupBox Header="Кабинет">
-                    <TextBox Name="TextBoxRoom"  IsReadOnly="False" Width="100" TextChanged="Room_Changed"/>
+                <GroupBox Header="Имя ПК">
+                    <TextBox Name="TextBoxIp"  IsReadOnly="False" Width="170" TextChanged="Room_Changed"/>
+                </GroupBox>
+                <GroupBox Header="Инвентарный номер">
+                    <TextBox Name="TextBoxNumber"  IsReadOnly="False" Width="150" TextChanged="Room_Changed"/>
+                </GroupBox>
+                <GroupBox Header="Локальный ip">
+                    <TextBox Name="TextBoxLocalIp"  IsReadOnly="False" Width="120" TextChanged="Room_Changed"/>
                 </GroupBox>
                 <GroupBox Header="Имя">
                     <TextBox Name="TextBoxName"  IsReadOnly="False" Width="200" TextChanged="Room_Changed"/>
                 </GroupBox>
-                <GroupBox Header="Локальный ip">
-                    <TextBox Name="TextBoxLocalIp"  IsReadOnly="False" Width="200" TextChanged="Room_Changed"/>
+                <GroupBox Header="Кабинет" Margin="5,5,0,5">
+                    <TextBox Name="TextBoxRoom"  IsReadOnly="False" Width="100" TextChanged="Room_Changed"/>
                 </GroupBox>
-                <GroupBox Header="ip">
-                    <TextBox Name="TextBoxIp"  IsReadOnly="False" Width="200" TextChanged="Room_Changed"/>
-                </GroupBox>
-                <Button Height="35" VerticalAlignment="Top" Content="&lt;" Click="Options_Click" Style="{StaticResource StandartButton}"/>
+               
 
             </StackPanel>
         </StackPanel>
-        <Frame Grid.Row="1" Name="FrameModePreview" NavigationUIVisibility="Hidden">
+        <Button Height="35" Grid.Column="1"  Margin="5" VerticalAlignment="Top" Click="Options_Click" Style="{StaticResource StandartButton}">
+            <Image Margin="5" Source="Resources/options.png"/>
+        </Button>
+        <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Name="FrameModePreview" NavigationUIVisibility="Hidden">
 
         </Frame>
-        <StackPanel Name="StackBlur" Grid.Row="0" Grid.RowSpan="2" Background="#aa000000" Visibility="Collapsed" MouseLeftButtonDown="StackBlur_MouseLeftButtonDown"/>
-        <StackPanel Name="StackOptions" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="0" UseLayoutRounding="True" SnapsToDevicePixels="True">
+        <StackPanel Name="StackBlur" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#aa000000" Visibility="Collapsed" MouseLeftButtonDown="StackBlur_MouseLeftButtonDown"/>
+        <StackPanel Name="StackOptions" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="0" UseLayoutRounding="True" SnapsToDevicePixels="True">
             <Border BorderBrush="#99FF4D00" BorderThickness="1" CornerRadius="5" Background="AliceBlue" UseLayoutRounding="True" SnapsToDevicePixels="True">
                 <StackPanel Orientation="Vertical">
                     <GroupBox Header="Вид">
