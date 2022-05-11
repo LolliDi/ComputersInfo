@@ -306,7 +306,7 @@ namespace ComputersInfo
         bool isToggleHard;
         private void Hard_Click(object sender, RoutedEventArgs e)
         {
-            ShowPanel(ListViewHard, ref isToggleHard, hardDrives.Count * 220, BtnHard);
+            ShowPanel(ListViewHard, ref isToggleHard, hardDrives.Count * 130, BtnHard);
         }
         private void Manufacturer_Changed(object sender, TextChangedEventArgs e)
         {

@@ -60,7 +60,7 @@
                                                     <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.NumberOfCores, StringFormat={}Количество ядер: {0}}"/>
                                                     <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryCountMB, StringFormat={}ОЗУ: {0} МБ}"/>
                                                     <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding VC.Model, StringFormat={}Видеокарта: {0}}"/>
-                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryHardGB, StringFormat={}Память: {0} гб}"/>
+                                                    <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding MemoryHardGB, StringFormat={}Память: {0} Гб}"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Vertical">
                                                     <TextBox Style="{StaticResource TBNonBorder}" Text="{Binding Processor.StartClockSpeed, StringFormat={}Стартовая частота: {0} Гц}"/>

@@ -37,6 +37,7 @@ namespace ComputersInfo
                     DBCl.db.Computers.Remove(c);
                     DBCl.db.SaveChanges();
                     info.s.SelectedPCModel.Remove(info.s.SelectedPCModel.FirstOrDefault(x => x.Computer == c));
+                    info.s.CountSelected = info.s.SelectedPCModel.Count;
                     ItemsControlComputers.Items.Refresh();
                     break;
                 default:

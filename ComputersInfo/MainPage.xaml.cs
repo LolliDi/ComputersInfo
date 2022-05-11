@@ -50,10 +50,10 @@ namespace ComputersInfo
 
         public async void Searching(string room, string name, string localIp, string namePC, string inventory)
         {
+            DBCl.db = new Entities();
+            List<ComputerModel> cm = new List<ComputerModel>();
             lock (locker) //доступ только для одного потока, остальные ждут очереди
             {
-                DBCl.db = new Entities();
-                List<ComputerModel> cm = new List<ComputerModel>();
                 if (room.Length > 0)
                 {
                     foreach (Computers c in DBCl.db.Computers.ToList())
@@ -63,7 +63,9 @@ namespace ComputersInfo
                             string r = c.RoomNumber ?? "";
                             if (r.ToLower() == room)
                             {
+
                                 cm.Add(new ComputerModel(c));
+
                             }
                         }
                         catch
@@ -76,60 +78,60 @@ namespace ComputersInfo
                 {
                     cm = GetComputers();
                 }
-                if (name.Length > 0)
-                {
-                    List<ComputerModel> comp = new List<ComputerModel>();
-                    foreach (ComputerModel c in cm)
-                    {
-                        string n = c.Computer.Name ?? "";
-                        if (n.ToLower().Contains(name))
-                        {
-                            comp.Add(c);
-                        }
-                    }
-                    cm = comp;
-                }
-                if (localIp.Length > 0)
-                {
-                    List<ComputerModel> comp = new List<ComputerModel>();
-                    foreach (ComputerModel c in cm)
-                    {
-                        string ips = c.Computer.IpLocal ?? "";
-                        if (ips.ToLower().Contains(localIp))
-                        {
-                            comp.Add(c);
-                        }
-                    }
-                    cm = comp;
-                }
-                if (namePC.Length > 0)
-                {
-                    List<ComputerModel> comp = new List<ComputerModel>();
-                    foreach (ComputerModel c in cm)
-                    {
-                        string nameP = c.Computer.PCName ?? "";
-                        if (nameP.ToLower().Contains(namePC))
-                        {
-                            comp.Add(c);
-                        }
-                    }
-                    cm = comp;
-                }
-                if(inventory.Length > 0)
-                {
-                    List<ComputerModel> comp = new List<ComputerModel>();
-                    foreach (ComputerModel c in cm)
-                    {
-                        string inv = c.Computer.InventoryNumber ?? "";
-                        if (inv.ToLower().Contains(inventory))
-                        {
-                            comp.Add(c);
-                        }
-                    }
-                    cm = comp;
-                }
-                info.s.SelectedPCModel = cm;
             }
+            if (name.Length > 0)
+            {
+                List<ComputerModel> comp = new List<ComputerModel>();
+                foreach (ComputerModel c in cm)
+                {
+                    string n = c.Computer.Name ?? "";
+                    if (n.ToLower().Contains(name))
+                    {
+                        comp.Add(c);
+                    }
+                }
+                cm = comp;
+            }
+            if (localIp.Length > 0)
+            {
+                List<ComputerModel> comp = new List<ComputerModel>();
+                foreach (ComputerModel c in cm)
+                {
+                    string ips = c.Computer.IpLocal ?? "";
+                    if (ips.ToLower().Contains(localIp))
+                    {
+                        comp.Add(c);
+                    }
+                }
+                cm = comp;
+            }
+            if (namePC.Length > 0)
+            {
+                List<ComputerModel> comp = new List<ComputerModel>();
+                foreach (ComputerModel c in cm)
+                {
+                    string nameP = c.Computer.PCName ?? "";
+                    if (nameP.ToLower().Contains(namePC))
+                    {
+                        comp.Add(c);
+                    }
+                }
+                cm = comp;
+            }
+            if (inventory.Length > 0)
+            {
+                List<ComputerModel> comp = new List<ComputerModel>();
+                foreach (ComputerModel c in cm)
+                {
+                    string inv = c.Computer.InventoryNumber ?? "";
+                    if (inv.ToLower().Contains(inventory))
+                    {
+                        comp.Add(c);
+                    }
+                }
+                cm = comp;
+            }
+            info.s.SelectedPCModel = cm;
         }
 
         private void Room_Changed(object sender, TextChangedEventArgs e)
@@ -187,7 +189,7 @@ namespace ComputersInfo
         private void PassportSelected_Click(object sender, RoutedEventArgs e) //создание паспорта всех отображаемых компов
         {
             CreatePassport.Create(info.s.SelectedPCModel);
-            
+
         }
 
     }

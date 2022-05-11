@@ -205,6 +205,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\header.jfif" />
     <Resource Include="Resources\options.png" />
     <Resource Include="Resources\Comp.png" />
     <Resource Include="Resources\pcIcon.ico" />
