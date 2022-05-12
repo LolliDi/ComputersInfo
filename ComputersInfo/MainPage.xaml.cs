@@ -50,7 +50,7 @@ namespace ComputersInfo
 
         public async void Searching(string room, string name, string localIp, string namePC, string inventory)
         {
-            DBCl.db = new Entities();
+            DBCl.db = new ComputersInfoEntities();
             List<ComputerModel> cm = new List<ComputerModel>();
             lock (locker) //доступ только для одного потока, остальные ждут очереди
             {
@@ -63,9 +63,7 @@ namespace ComputersInfo
                             string r = c.RoomNumber ?? "";
                             if (r.ToLower() == room)
                             {
-
                                 cm.Add(new ComputerModel(c));
-
                             }
                         }
                         catch
@@ -189,7 +187,6 @@ namespace ComputersInfo
         private void PassportSelected_Click(object sender, RoutedEventArgs e) //создание паспорта всех отображаемых компов
         {
             CreatePassport.Create(info.s.SelectedPCModel);
-
         }
 
     }

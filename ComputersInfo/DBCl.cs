@@ -8,6 +8,6 @@ namespace ComputersInfo
 {
     internal static class DBCl
     {
-        public static Entities db = new Entities();
+        public static ComputersInfoEntities db = new ComputersInfoEntities();
     }
 }

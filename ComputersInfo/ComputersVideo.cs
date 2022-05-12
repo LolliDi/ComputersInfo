@@ -15,8 +15,8 @@ namespace ComputersInfo
     public partial class ComputersVideo
     {
         public int Id { get; set; }
-        public int IdPC { get; set; }
-        public int IdVideo { get; set; }
+        public Nullable<int> IdPC { get; set; }
+        public Nullable<int> IdVideo { get; set; }
     
         public virtual Computers Computers { get; set; }
         public virtual VideoControllers VideoControllers { get; set; }

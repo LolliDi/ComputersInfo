@@ -55,7 +55,7 @@ namespace ComputersInfo
         {
             try
             {
-                DBCl.db = new Entities();
+                DBCl.db = new ComputersInfoEntities();
                 computer = DBCl.db.Computers.FirstOrDefault(x => x.id == idPC);
                 motherBoard = DBCl.db.MotherBoards.FirstOrDefault(x => x.Id == computer.MotherBoardId);
                 processor = DBCl.db.Processors.FirstOrDefault(x => x.Id == computer.ProcessorId);
@@ -267,25 +267,6 @@ namespace ComputersInfo
             VideoControllers vc = videoControllers.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
             vc.AdapterRAMMB = SetNumerableValue(vc.AdapterRAMMB, tb);
         }
-        private void MaxFPS_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            VideoControllers vc = videoControllers.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.MaxRefreshRate = SetNumerableValue(vc.MaxRefreshRate, tb);
-        }
-        private void Vertical_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            VideoControllers vc = videoControllers.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.CurrentVerticalResolution = SetNumerableValue(vc.CurrentVerticalResolution, tb);
-
-        }
-        private void Horizontal_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            VideoControllers vc = videoControllers.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.CurrentVHorizontalResolution = SetNumerableValue(vc.CurrentVHorizontalResolution, tb);
-        }
         private void MemFrequency_Changed(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -324,29 +305,7 @@ namespace ComputersInfo
             HardDrives vc = hardDrives.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
             vc.SizeGB = SetNumerableValue(vc.SizeGB, tb);
         }
-        private void Interface_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            hardDrives.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid)).Interface = tb.Text;
-        }
-        private void SpeedWrite_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            HardDrives vc = hardDrives.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.SpeedWriteMBS = SetNumerableValue(vc.SpeedWriteMBS, tb);
-        }
-        private void SpeedRead_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            HardDrives vc = hardDrives.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.SpeedReadMBS = SetNumerableValue(vc.SpeedReadMBS, tb);
-        }
-        private void Buffer_Changed(object sender, TextChangedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            HardDrives vc = hardDrives.FirstOrDefault(x => x.Id == Convert.ToInt32(tb.Uid));
-            vc.BufferMB = SetNumerableValue(vc.BufferMB, tb);
-        }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             DBCl.db.SaveChanges();
@@ -375,7 +334,8 @@ namespace ComputersInfo
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            DBCl.db = new Entities();
+            DBCl.db = new ComputersInfoEntities();
+            FrameClass.main.Search();
             FrameClass.fr.Navigate(FrameClass.main);
         }
 

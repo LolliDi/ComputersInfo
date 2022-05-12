@@ -13,10 +13,10 @@ namespace ComputersInfo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class ComputersInfoEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ComputersInfoEntities()
+            : base("name=ComputersInfoEntities")
         {
         }
     
@@ -33,7 +33,6 @@ namespace ComputersInfo
         public virtual DbSet<OS> OS { get; set; }
         public virtual DbSet<PhysicalMemory> PhysicalMemory { get; set; }
         public virtual DbSet<Processors> Processors { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<VideoControllers> VideoControllers { get; set; }
     }
 }
