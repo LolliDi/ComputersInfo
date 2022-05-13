@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ComputersInfo
 {
@@ -36,8 +32,8 @@ namespace ComputersInfo
             get => memoryHardGB;
             set => memoryHardGB = value;
         }
-        public Computers Computer 
-        { 
+        public Computers Computer
+        {
             get => computer;
             set => computer = value;
         }
@@ -51,13 +47,13 @@ namespace ComputersInfo
             get => videoController;
             set
             {
-                
+
                 videoController = value;
                 double mem = Convert.ToDouble(videoController[0].AdapterRAMMB);
                 vc = videoController[0];
-                for (int i=0;i<videoController.Count();i++)
+                for (int i = 0; i < videoController.Count(); i++)
                 {
-                    if(mem<videoController[i].AdapterRAMMB)
+                    if (mem < videoController[i].AdapterRAMMB)
                     {
                         mem = Convert.ToDouble(videoController[i].AdapterRAMMB);
                         vc = videoController[i];
@@ -65,7 +61,7 @@ namespace ComputersInfo
                 }
             }
         }
-        public List <PhysicalMemory> PhysicalMemory
+        public List<PhysicalMemory> PhysicalMemory
         {
             get => physicalMemorie;
             set
@@ -106,29 +102,29 @@ namespace ComputersInfo
         {
             computer = comp;
             int id = comp.id;
-            if(computer!=null)
+            if (computer != null)
             {
                 processor = DBCl.db.Processors.FirstOrDefault(x => x.Id == computer.ProcessorId);
                 List<ComputersVideo> cv = DBCl.db.ComputersVideo.Where(x => x.IdPC == id).ToList();
                 List<VideoControllers> v = new List<VideoControllers>();
                 foreach (ComputersVideo c in cv)
                 {
-                    v.Add(DBCl.db.VideoControllers.FirstOrDefault(x => x.Id==c.IdVideo));
+                    v.Add(DBCl.db.VideoControllers.FirstOrDefault(x => x.Id == c.IdVideo));
                 }
                 VideoController = v;
-                PhysicalMemory = DBCl.db.PhysicalMemory.Where(x=>x.IdPC==id).ToList();
+                PhysicalMemory = DBCl.db.PhysicalMemory.Where(x => x.IdPC == id).ToList();
                 List<ComputerHard> ch = DBCl.db.ComputerHard.Where(x => x.IdPC == id).ToList();
                 List<HardDrives> h = new List<HardDrives>();
-                foreach(ComputerHard c in ch)
+                foreach (ComputerHard c in ch)
                 {
                     h.Add(DBCl.db.HardDrives.FirstOrDefault(x => x.Id == c.IdHard));
                 }
                 HardDrive = h;
                 motherBoard = DBCl.db.MotherBoards.FirstOrDefault(x => x.Id == computer.MotherBoardId);
-                oS = DBCl.db.OS.FirstOrDefault(x => x.IdPC==id);
+                oS = DBCl.db.OS.FirstOrDefault(x => x.IdPC == id);
             }
 
         }
-        
+
     }
 }

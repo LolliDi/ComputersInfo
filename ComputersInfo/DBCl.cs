@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ComputersInfo
+﻿namespace ComputersInfo
 {
     internal static class DBCl
     {
-        public static ComputersInfoEntities db = new ComputersInfoEntities();
+        public static ComputersInfoEntities1 db = new ComputersInfoEntities1();
     }
 }

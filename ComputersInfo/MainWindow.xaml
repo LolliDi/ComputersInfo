@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputersInfo"
         mc:Ignorable="d"
+        Icon="Resources/icon.png"
         Title="Просмотр компьютеров" MinWidth="1000" MaxWidth="1200" MinHeight="700">
     <Grid Background="AliceBlue">
         <Frame Name="FrameHead" NavigationUIVisibility="Hidden"/>

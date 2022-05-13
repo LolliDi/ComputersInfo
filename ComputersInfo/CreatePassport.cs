@@ -20,11 +20,10 @@ namespace ComputersInfo
             {
                 Word.Application app = new Word.Application(); //открываем приложение
                 Word.Document doc = app.Documents.Add();
-                Word.WdColor color = Word.WdColor.wdColorLightOrange; //цвет для выделения новых пунктов
                 Word.Paragraph paragraph = doc.Paragraphs.Add();
                 Word.Range range = paragraph.Range;
                 Word.InlineShape image = range.InlineShapes.AddPicture(AppDomain.CurrentDomain.BaseDirectory + "\\header.jfif");
-               
+
                 foreach (ComputerModel cm in computers)
                 {
                     Word.Paragraph tableParagraph = doc.Paragraphs.Add();
@@ -40,7 +39,7 @@ namespace ComputersInfo
                     SetTextToRowNormal(table, 6, "Тип АРМ", "Компьютерный комплект");
                     SetTextToRowNormal(table, 7, "IP-адрес", cm.Computer.IpLocal ?? "??");
                     SetTextToRowNormal(table, 8, "Инвентарный номер", cm.Computer.InventoryNumber ?? "??");
-                    SetTextToRowNormal(table, 9, "Материнская плата", (cm.MotherBoard.Manufacturer ?? "??") + " " +(cm.MotherBoard.Model ?? "??"));
+                    SetTextToRowNormal(table, 9, "Материнская плата", (cm.MotherBoard.Manufacturer ?? "??") + " " + (cm.MotherBoard.Model ?? "??"));
                     SetTextToRowNormal(table, 10, "Процессор", cm.Processor.Model ?? "??");
                     SetTextToRowNormal(table, 11, "RAM", (cm.MemoryCountMB.ToString() ?? "??" + "Мб"));
                     SetTextToRowNormal(table, 12, "Количество HDD", cm.HardDrive.Count.ToString());
@@ -50,7 +49,7 @@ namespace ComputersInfo
                     int i = 13;
                     foreach (HardDrives h in cm.HardDrive)
                     {
-                        table.Cell(i, 2).Range.Text = h.Model??"";
+                        table.Cell(i, 2).Range.Text = h.Model ?? "";
                         i++;
                     }
                     SetTextToRowNormal(table, 16, "Видеокарта", cm.VC.Model ?? "??");

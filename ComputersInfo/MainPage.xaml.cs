@@ -48,9 +48,9 @@ namespace ComputersInfo
             thread.Start();
         }
 
-        public async void Searching(string room, string name, string localIp, string namePC, string inventory)
+        public void Searching(string room, string name, string localIp, string namePC, string inventory)
         {
-            DBCl.db = new ComputersInfoEntities();
+            DBCl.db = new ComputersInfoEntities1();
             List<ComputerModel> cm = new List<ComputerModel>();
             lock (locker) //доступ только для одного потока, остальные ждут очереди
             {

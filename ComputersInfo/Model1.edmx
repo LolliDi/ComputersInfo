@@ -497,7 +497,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ComputersInfoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ComputersInfoEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ComputerHard" EntityType="Self.ComputerHard" />
           <EntitySet Name="Computers" EntityType="Self.Computers" />
           <EntitySet Name="ComputersVideo" EntityType="Self.ComputersVideo" />
@@ -545,7 +545,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ComputersInfoModelContainer" CdmEntityContainer="ComputersInfoEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ComputersInfoModelContainer" CdmEntityContainer="ComputersInfoEntities1">
           <EntitySetMapping Name="ComputerHard">
             <EntityTypeMapping TypeName="ComputersInfoModel.ComputerHard">
               <MappingFragment StoreEntitySet="ComputerHard">

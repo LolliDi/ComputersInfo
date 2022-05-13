@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ComputersInfo
 {
@@ -25,7 +16,7 @@ namespace ComputersInfo
         Computers computer;
         Processors processor;
         List<VideoControllers> videoControllers = new List<VideoControllers>();
-       List<PhysicalMemory> physicalMemories = new List<PhysicalMemory>();
+        List<PhysicalMemory> physicalMemories = new List<PhysicalMemory>();
         List<HardDrives> hardDrives = new List<HardDrives>();
         MotherBoards motherBoard = new MotherBoards();
         OS oS;
@@ -55,7 +46,7 @@ namespace ComputersInfo
         {
             try
             {
-                DBCl.db = new ComputersInfoEntities();
+                DBCl.db = new ComputersInfoEntities1();
                 computer = DBCl.db.Computers.FirstOrDefault(x => x.id == idPC);
                 motherBoard = DBCl.db.MotherBoards.FirstOrDefault(x => x.Id == computer.MotherBoardId);
                 processor = DBCl.db.Processors.FirstOrDefault(x => x.Id == computer.ProcessorId);
@@ -72,7 +63,7 @@ namespace ComputersInfo
                 }
                 oS = DBCl.db.OS.FirstOrDefault(OS => OS.IdPC == idPC);
                 UpdateContexts();
-                
+
             }
             catch (Exception ex)
             {
@@ -334,7 +325,7 @@ namespace ComputersInfo
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            DBCl.db = new ComputersInfoEntities();
+            DBCl.db = new ComputersInfoEntities1();
             FrameClass.main.Search();
             FrameClass.fr.Navigate(FrameClass.main);
         }
