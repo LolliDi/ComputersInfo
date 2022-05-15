@@ -255,28 +255,11 @@
                                                             <GroupBox Header="{Binding Model}">
                                                                 <StackPanel Orientation="Vertical">
                                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                                        <GroupBox Header="Производитель">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding Manufacturer}" Width="300"/>
-                                                                        </GroupBox>
-                                                                        <GroupBox Header="Тип">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding Type}" Width="150"/>
+                                                                        <GroupBox Header="Модель">
+                                                                            <TextBox Uid="{Binding Id}" Text="{Binding Model}" Width="300"/>
                                                                         </GroupBox>
                                                                         <GroupBox Header="Размер (ГБ)">
                                                                             <TextBox Uid="{Binding Id}" Text="{Binding SizeGB}" Width="150"/>
-                                                                        </GroupBox>
-                                                                        <GroupBox Header="Интерфейс">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding Interface}" Width="100"/>
-                                                                        </GroupBox>
-                                                                    </StackPanel>
-                                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                                        <GroupBox Header="Скорость записи">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding SpeedWriteMBS}" Width="150"/>
-                                                                        </GroupBox>
-                                                                        <GroupBox Header="Скорость чтения">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding SpeedReadMBS}" Width="150"/>
-                                                                        </GroupBox>
-                                                                        <GroupBox Header="Буффер (мб)">
-                                                                            <TextBox Uid="{Binding Id}" Text="{Binding BufferMB}" Width="150"/>
                                                                         </GroupBox>
                                                                     </StackPanel>
                                                                 </StackPanel>
